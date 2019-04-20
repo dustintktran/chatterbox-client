@@ -42,10 +42,3 @@ var App = {
 };
 
 // Data.results.forEach(obj => renderMessage(obj));
-//loop through all messages
-//if a roomname exists,
-  //if rooms array doesnt have it
-    //add to rooms array
-
-//for all in rooms array
-  //append the room to the options

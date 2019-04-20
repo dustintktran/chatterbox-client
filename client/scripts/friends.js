@@ -1,5 +1,9 @@
+var friendsList = [];
 var Friends = {
-    toggleStatus: function(){
+    toggleStatus: function(friend){
+        if(!friendsList.includes(friend)){
+            friendsList.push(friend);
+        }
         console.log('friended');
         return true;
     }

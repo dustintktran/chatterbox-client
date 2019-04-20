@@ -6,9 +6,35 @@ var RoomsView = {
   initialize: function() {
 
 
-    var renderRooms = document.createElement("button");
-    renderRooms.innerHTML = "Render Rooms";
-    renderRooms.addEventListener("click", function(){
+    // var renderRooms = document.createElement("button");
+    // renderRooms.innerHTML = "Render Rooms";
+    // renderRooms.addEventListener("click", function(){
+    //   $("#chats").empty();
+    //   var room = $("select option:selected")[0].value;
+    //   console.log(room);
+    //   for(var val in Messages) {
+    //       if(Messages[val]["roomname"] === room){
+    //         MessagesView.renderMessage(Messages[val]);
+    //       }
+    //   }  // setTimeout(Data.results.forEach(obj => MessagesView.renderMessage(obj)) ,2500);
+    //   // Data.results.forEach(obj => MessagesView.renderMessage(obj));
+    //   Data.results.forEach(function(val){
+    //     if(val["roomname"]) {
+    //       if(!Rooms.rooms.includes(val["roomname"])){
+    //         Rooms.rooms.push(val["roomname"]);
+    //         $('#rooms select').append(`<option value = "${val["roomname"]}">${val["roomname"]}</option>`)
+    //       }
+    //     }
+    //   });
+    // });
+    
+        // var h1 = document.getElementsByTagName("h1")[0];
+        // h1.appendChild(renderRooms);
+        
+
+    var autoRenderRooms = document.querySelector('.roomSelect');
+
+    autoRenderRooms.addEventListener('change', function(){
       $("#chats").empty();
       var room = $("select option:selected")[0].value;
       console.log(room);
@@ -16,9 +42,7 @@ var RoomsView = {
           if(Messages[val]["roomname"] === room){
             MessagesView.renderMessage(Messages[val]);
           }
-      }
-      
-      // setTimeout(Data.results.forEach(obj => MessagesView.renderMessage(obj)) ,2500);
+      }  // setTimeout(Data.results.forEach(obj => MessagesView.renderMessage(obj)) ,2500);
       // Data.results.forEach(obj => MessagesView.renderMessage(obj));
       Data.results.forEach(function(val){
         if(val["roomname"]) {
@@ -29,9 +53,12 @@ var RoomsView = {
         }
       });
     });
-    var h1 = document.getElementsByTagName("h1")[0];
-    h1.appendChild(renderRooms);
-    
+
+
+
+
+
+
     
     
     

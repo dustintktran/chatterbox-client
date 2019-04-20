@@ -13,7 +13,7 @@ var FormView = {
     var text = $('#message').val();
     obj.username = App.username;
     obj.text = text;
-    obj.roomname = "testRoom";
+    obj.roomname = $("select option:selected")[0].value;
     Parse.create(obj); //<=============???????
 
     // var $element = $('<div></div>');

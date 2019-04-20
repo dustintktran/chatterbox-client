@@ -6,14 +6,25 @@ var MessagesView = {
     var refresh = document.createElement("button");
     refresh.innerHTML = "Refresh Messages";
     refresh.addEventListener("click", function(){
-      $(".isAMessage").empty();
+      $("#chats").empty();
       App.fetch();
       setTimeout(Data.results.forEach(obj => MessagesView.renderMessage(obj)) ,2500);
       // Data.results.forEach(obj => MessagesView.renderMessage(obj));
+      var counter = 0;
+      // Messages = {};
+      Data.results.forEach(function(val){
+        Messages[counter] = val;
+        counter++;
+        if(val["roomname"]) {
+          if(!Rooms.rooms.includes(val["roomname"])){
+            Rooms.rooms.push(val["roomname"]);
+            $('#rooms select').append(`<option value = "${val["roomname"]}">${val["roomname"]}</option>`)
+          }
+        }
+      });
     });
     var h1 = document.getElementsByTagName("h1")[0];
     h1.appendChild(refresh);
-    
   },
 
   render: function() {
@@ -21,7 +32,8 @@ var MessagesView = {
 
   renderMessage: function(obj){
     // $('.isAMessage').empty();
-    var $element = $('<div class="isAMessage"></div>');
+    // var room = $("select option:selected")[0].value;
+    var $element = $(`<div class="${obj.roomname}"></div>`); // class="isAMessage"
     var $user = $('<div class="username"></div>');
     $user.click(function(){
       Friends.toggleStatus();

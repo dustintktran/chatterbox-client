@@ -8,9 +8,25 @@ var FormView = {
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
+    var obj = {};
     event.preventDefault();
-    
-    console.log('click!');
+    var text = $('#message').val();
+    obj.username = App.username;
+    obj.text = text;
+    obj.roomname = "testRoom";
+    Parse.create(obj); //<=============???????
+
+    // var $element = $('<div></div>');
+    // var $user = $('<div class="username"></div>');
+    // // $user.on("click", function(){
+    // //   Friends.toggleStatus();
+    // // });
+    // $user.html('<b>' + App.username + ': </b>');
+    // var $text = $('<div></div>');
+    // $text.text(text);
+    // $element.append($user);
+    // $element.append($text);
+    // $('#chats').append($element);
   },
 
   setStatus: function(active) {
